@@ -1,0 +1,10 @@
+# Derived preview bundle (rebuilt by tools/build_preview.py)
+portfolio-preview.html
+
+# macOS system files
+.DS_Store
+._*
+
+# Python cache
+__pycache__/
+*.pyc

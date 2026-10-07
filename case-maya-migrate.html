@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maya Migrate — Chenxi Liu</title>
+<meta name="description" content="Case study: a free case-management app for immigrants and their lawyers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+  <a class="site-name" href="index.html">Chenxi Liu</a>
+  <nav class="site-nav" aria-label="Main"><a href="index.html#work" aria-current="page">Work</a><a href="index.html#about">About</a><a href="resume.pdf">Download resume</a></nav>
+</div></header>
+
+<main id="main" class="wrap">
+<div class="page-title">
+  <a class="back" href="index.html#work">All work</a>
+  <p class="t-label page-title__label">Nonprofit legal tech, 2026</p><h1>Maya Migrate</h1>
+  <p class="t-lead">A calm, free case-management app for people in a frightening process.</p>
+</div><dl class="summary">
+  <div><dt>Role</dt><dd>Lead product designer</dd></div>
+  <div><dt>Team</dt><dd><span class="todo">Founders, engineers</span></dd></div>
+  <div><dt>Timeline</dt><dd><span class="todo">Year, e.g. 2025–2026</span></dd></div>
+  <div class="summary__wide"><dt>Problem</dt><dd>Immigrants and the solo lawyers who serve them needed a free, trustworthy way to manage cases. The product started as engineer-made mockups, with no design system and a critical safety feature described in technical jargon.</dd></div>
+  <div class="summary__wide"><dt>Outcome</dt><dd>A design system, a redesigned app and landing page, and an emergency check-in feature, designed end to end and now live.</dd></div>
+</dl><figure><div class="media" role="img" aria-label="App dashboard and check-in feature"></div><figcaption>The mobile dashboard and the check-in feature, in the indigo brand system.</figcaption></figure><section class="section" aria-labelledby="context">
+  <div class="split"><h2 id="context">Context</h2><div><p>Maya Migrate is an immigrant-led nonprofit. Its platform is free for immigrants and the solo lawyers who represent them, it keeps data collection lean, and it never sells user data. The people using it are often under real stress, so every screen has to feel steady and clear.</p><p>I joined as the only designer. My first step was a UX critique of the existing mockups, followed by redesigns of the core screens.</p></div></div>
+  <div class="rows"><div class="row"><h3>Nothing looked like it belonged together</h3><p>Screens built directly by engineers had no shared colors, type, or spacing, so the app felt unfinished at the moments people most needed to trust it.<span class="row__src">Known going in, from the UX critique</span></p></div><div class="row"><h3>The safety feature spoke in jargon</h3><p>The emergency feature was called a "dead man's switch" that users would "arm," language that is confusing at best and alarming for someone worried about detention.<span class="row__src">Known going in, from the project scope</span></p></div></div>
+</section><section class="section" aria-labelledby="decisions">
+  <div class="split"><h2 id="decisions">Key decisions</h2><div><p>Trauma-informed design was the brief. In practice, that came down to four decisions.</p></div></div>
+  <div class="rows"><div class="row"><h3>Plain words for a frightening feature</h3><div><p><span class="row__k">The situation</span>The feature alerts a person's trusted contacts and lawyer if they stop checking in, which could mean they've been detained.</p><p><span class="row__k">What I chose</span>I renamed it the check-in feature and replaced "arm" with "turn on." I kept the copy calm and factual throughout, describing what will happen without dramatizing it.</p></div></div><div class="row"><h3>Make every color mean one thing</h3><div><p><span class="row__k">The situation</span>In an app about legal risk, a stray red or a warning-colored button can read as an emergency.</p><p><span class="row__k">What I chose</span>Indigo is the primary surface, amber means paused or needs attention, red is reserved for destructive actions only, and green signals status. I checked contrast across the palette and flagged pairings that didn't pass.</p></div></div><div class="row"><h3>Build the system before the screens</h3><div><p><span class="row__k">The situation</span>As the only designer, I needed every new screen to be fast to make and consistent with the rest.</p><p><span class="row__k">What I chose</span>I set up five color ramps, text styles, a spacing scale, and corner-radius tokens, then later ran a cleanup pass that bound every frame to the shared styles so the file stays maintainable for whoever comes next.</p></div></div><div class="row"><h3>Design the alert as a whole journey</h3><div><p><span class="row__k">The situation</span>A safety feature fails if any step is unclear: setting it up, living with it, or receiving the alert.</p><p><span class="row__k">What I chose</span>I designed the full path: a setup wizard for desktop and mobile, dashboard states for empty, active, and paused, and five email templates for the people who receive alerts.</p></div></div></div>
+</section><section class="section" aria-labelledby="design">
+  <div class="split"><h2 id="design">The design</h2><div><p>Beyond the app itself, I designed the landing page, an animated splash screen in the brand indigo, and a research plan for testing the check-in feature with real users.</p></div></div>
+  <figure><div class="media" role="img" aria-label="Check-in setup wizard, desktop and mobile"></div><figcaption>Setting up the check-in feature, one decision per step.</figcaption></figure><figure><div class="media media--short" role="img" aria-label="Dashboard states: empty, active, paused"></div><figcaption>Amber marks a paused check-in without reading as an emergency.</figcaption></figure><figure><div class="media media--short" role="img" aria-label="Design system: color ramps and type"></div><figcaption>Five color ramps, text styles, and spacing tokens, shared across every screen.</figcaption></figure>
+</section><section class="section" aria-labelledby="results">
+  <div class="split"><h2 id="results">Results and what's next</h2><div><p>The app is live on the App Store. Live user studies of the check-in feature are next, and these are the measures I'll report.</p></div></div>
+  <div class="metrics"><div class="metric"><span class="metric__num metric__num--empty">—</span><p>People reached through the app.</p><span class="t-caption"><span class="tag">Live</span></span></div><div class="metric"><span class="metric__num metric__num--empty">—</span><p>Users who finish setting up a check-in.</p><span class="t-caption"><span class="tag">Live</span></span></div><div class="metric"><span class="metric__num metric__num--empty">—</span><p>What live studies show about trust and clarity.</p><span class="t-caption"><span class="tag tag--pending">Studies planned</span></span></div></div>
+  <div class="split mt-8"><h2>Looking back</h2><div><p><span class="todo">Two or three sentences: what you'd do differently, and what this project taught you.</span></p></div></div>
+</section><div class="next">
+  <a href="index.html#work"><span class="t-label">Back</span><span class="next__title">All work</span></a>
+  <a href="case-parallel-chatbot.html"><span class="t-label">Next project</span><span class="next__title">Years of Consultant Expertise Made Interactive</span></a>
+</div>
+</main>
+
+<footer class="site-footer"><div class="wrap"><div class="site-footer__inner"><span>Chenxi Liu, Seattle</span><span class="footer-links"><a href="mailto:chaserliu1994@gmail.com">Email</a><a href="https://www.linkedin.com/in/chenxi-liu-ux" target="_blank" rel="noopener">LinkedIn</a></span></div></div></footer>
+</body>
+</html>

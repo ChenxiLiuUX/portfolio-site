@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Design system — Chenxi Liu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Documentation-only styles */
+code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 14px; }
+.ds-swatches { margin-top: var(--space-7); display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--space-4); }
+.ds-sw { border: var(--rule); background: var(--color-surface); padding: 0 0 var(--space-4); display: flex; flex-direction: column; gap: 2px; font-size: var(--text-caption); }
+.ds-sw .ds-chip { height: 80px; border-bottom: var(--rule); margin-bottom: var(--space-3); }
+.ds-sw > b, .ds-sw > code, .ds-sw > span { padding: 0 var(--space-4); }
+.ds-sw > b { font-weight: 600; font-size: var(--text-body-s); }
+.ds-sw > span:last-child { color: var(--color-muted); }
+.ds-table-wrap { margin-top: var(--space-5); overflow-x: auto; border: var(--rule); background: var(--color-surface); }
+.ds-table { width: 100%; border-collapse: collapse; font-size: var(--text-body-s); min-width: 640px; }
+.ds-table th { text-align: left; font-size: var(--text-label); font-weight: 500; color: var(--color-muted); padding: var(--space-3) var(--space-4); border-bottom: var(--rule); }
+.ds-table td { padding: var(--space-3) var(--space-4); border-bottom: var(--hairline); vertical-align: top; }
+.ds-table tr:last-child td { border-bottom: 0; }
+.ds-type > div:first-child { display: flex; flex-direction: column; gap: 2px; }
+.ds-type p, .ds-type h1, .ds-type h2, .ds-type h3, .ds-type .t-display { margin: 0; }
+.ds-space { align-items: center; padding: var(--space-3) 0; }
+.ds-space > div { display: flex; align-items: center; gap: var(--space-4); font-size: var(--text-body-s); }
+.ds-bar { display: inline-block; height: 16px; background: var(--color-signal); flex-shrink: 0; }
+.ds-comp-h { margin: var(--space-8) 0 var(--space-4); }
+.ds-demo { border: var(--rule); background: var(--color-surface); padding: var(--space-6); }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+  <a class="site-name" href="index.html">Chenxi Liu</a>
+  <nav class="site-nav" aria-label="Design system sections">
+    <a href="#color">Color</a><a href="#type">Type</a><a href="#space">Spacing</a><a href="#components">Components</a><a href="#checks">Checks</a>
+  </nav>
+</div></header>
+
+<main id="main" class="wrap">
+  <div class="hero">
+    <p class="t-label" style="margin:0">Design system v1.1</p>
+    <h1 class="t-display" style="margin-top:var(--space-3)">Portfolio design system</h1>
+    <p>Space Mono and Plus Jakarta Sans with a vermilion accent. Every value on the site comes from the tokens in <code>styles.css</code>, so a change made there updates every page at once.</p>
+  </div>
+
+  <section class="split" aria-labelledby="principles">
+    <h2 id="principles">Principles</h2>
+    <div>
+      <div class="rows" style="margin-top:0">
+        <div class="row"><h3>The work is the color</h3><p>The site stays neutral so project images, with their own palettes, are always the loudest thing on the page. Vermilion is for interaction and status only.</p></div>
+        <div class="row"><h3>Reading comes first</h3><p>Case studies are mostly writing. Body text is large, lines stay short, and every heading is scannable on its own.</p></div>
+        <div class="row"><h3>Structure you can see</h3><p>Thin rules and square corners give the site its quiet, slightly brutalist frame. No shadows, gradients, or rounded cards.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOR -->
+  <section class="section" id="color" aria-labelledby="color-h">
+    <div class="split"><h2 id="color-h">Color</h2><p>Twelve colors, including two for the dark About panel. Text colors all pass WCAG AA on both backgrounds, and most pass AAA. The bright signal orange is never used as text.</p></div>
+    <div class="ds-swatches">
+      <div class="ds-sw"><div class="ds-chip" style="background:var(--color-bg)"></div><b>Background</b><code>--color-bg</code><span>#F5F6F7</span><span>Page background</span></div>
+      <div class="ds-sw"><div class="ds-chip" style="background:var(--color-surface)"></div><b>Surface</b><code>--color-surface</code><span>#FFFFFF</span><span>Cards, summary labels</span></div>
+      <div class="ds-sw"><div class="ds-chip" style="background:var(--color-ink)"></div><b>Ink</b><code>--color-ink</code><span>#15181C</span><span>Text, structural rules</span></div>
+      <div class="ds-sw"><div class="ds-chip" style="background:var(--color-muted)"></div><b>Muted</b><code>--color-muted</code><span>#585E66</span><span>Labels, captions, secondary text</span></div>
+      <div class="ds-sw"><div class="ds-chip" style="background:var(--color-line)"></div><b>Line</b><code>--color-line</code><span>#D8DCE0</span><span>Decorative dividers only</span></div>
+      <div class="ds-sw"><div class="ds-chip" style="background:var(--color-accent)"></div><b>Accent</b><code>--color-accent</code><span>#B8361A</span><span>Links, current page</span></div>
+      <div class="ds-sw"><div class="ds-chip" style="background:var(--color-accent-strong)"></div><b>Accent strong</b><code>--color-accent-strong</code><span>#952A13</span><span>Tag text, link hover</span></div>
+      <div class="ds-sw"><div class="ds-chip" style="background:var(--color-signal)"></div><b>Signal</b><code>--color-signal</code><span>#F0583A</span><span>Hover underline, quote rule</span></div>
+      <div class="ds-sw"><div class="ds-chip" style="background:var(--color-accent-soft)"></div><b>Accent soft</b><code>--color-accent-soft</code><span>#FBE2DC</span><span>Status tag fill</span></div>
+      <div class="ds-sw"><div class="ds-chip" style="background:var(--color-neutral-soft)"></div><b>Neutral soft</b><code>--color-neutral-soft</code><span>#E6E9EC</span><span>Pending tag fill</span></div>
+      <div class="ds-sw"><div class="ds-chip" style="background:var(--color-on-dark-muted)"></div><b>On dark, muted</b><code>--color-on-dark-muted</code><span>#B4BBC3</span><span>Secondary text in the About panel</span></div>
+      <div class="ds-sw"><div class="ds-chip" style="background:var(--color-dark-surface)"></div><b>Dark surface</b><code>--color-dark-surface</code><span>#272C33</span><span>Placeholders in the About panel</span></div>
+    </div>
+
+    <h3 style="margin-top:var(--space-8)">Approved pairings</h3>
+    <div class="ds-table-wrap">
+      <table class="ds-table">
+        <thead><tr><th>Text</th><th>On</th><th>Ratio</th><th>WCAG</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td>Ink</td><td>Background</td><td>16.5:1</td><td>AAA</td><td>All body and heading text</td></tr>
+          <tr><td>Muted</td><td>Background</td><td>6.1:1</td><td>AA</td><td>Labels, captions, secondary text</td></tr>
+          <tr><td>Muted</td><td>Surface</td><td>6.6:1</td><td>AA</td><td>Labels inside cards</td></tr>
+          <tr><td>Accent</td><td>Background</td><td>5.4:1</td><td>AA</td><td>Links, current nav item</td></tr>
+          <tr><td>Accent</td><td>Surface</td><td>5.9:1</td><td>AA</td><td>Links inside cards</td></tr>
+          <tr><td>Accent strong</td><td>Accent soft</td><td>6.5:1</td><td>AA</td><td>Status tags</td></tr>
+          <tr><td>Ink</td><td>Neutral soft</td><td>14.6:1</td><td>AAA</td><td>Pending tags</td></tr>
+          <tr><td>Ink</td><td>Signal</td><td>5.2:1</td><td>AA</td><td>Only if signal is ever used as a fill behind text</td></tr>
+          <tr><td>White</td><td>Ink</td><td>17.8:1</td><td>AAA</td><td>Headings and lead text in the About panel</td></tr>
+          <tr><td>On dark, muted</td><td>Ink</td><td>9.2:1</td><td>AAA</td><td>Body text in the About panel</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="t-caption" style="margin-top:var(--space-3)">Not allowed: signal or accent soft as text, white text on signal, or line color for anything that carries meaning (it's 1.3:1, decorative only).</p>
+  </section>
+
+  <!-- TYPE -->
+  <section class="section" id="type" aria-labelledby="type-h">
+    <div class="split"><h2 id="type-h">Type</h2><p>Space Mono for the site name, hero, section headings, project titles, and numbers. Plus Jakarta Sans for reading and interface, including item headings and quotes. Section headings and project titles are uppercase, the hero is not, and nothing is smaller than 14px.</p></div>
+    <div class="rows">
+      <div class="row ds-type"><div><span class="row__k">Display, page titles</span><code>--text-display</code><span class="t-caption">30–50px, 1.12, Space Mono 400. Home hero, sentence case</span></div><div class="t-display">Designing trust</div></div>
+      <div class="row ds-type"><div><span class="row__k">Project title</span><code>.page-title h1</code><span class="t-caption">28–44px, 1.15, Space Mono 700, uppercase</span></div><h1>Parallel admin tool</h1></div>
+      <div class="row ds-type"><div><span class="row__k">H2, section</span><code>--text-h2</code><span class="t-caption">22px, 1.3, Space Mono 700, uppercase</span></div><h2>Key decisions</h2></div>
+      <div class="row ds-type"><div><span class="row__k">H3, item</span><code>--text-h3</code><span class="t-caption">21px, 1.25, Plus Jakarta Sans 600</span></div><h3>Only let people send what they can see</h3></div>
+      <div class="row ds-type"><div><span class="row__k">Lead</span><code>--text-lead</code><span class="t-caption">20px, 1.5, Plus Jakarta Sans</span></div><p class="t-lead">Years of consultant expertise, made interactive.</p></div>
+      <div class="row ds-type"><div><span class="row__k">Body</span><code>--text-body</code><span class="t-caption">18px (17 mobile), 1.65, max 68ch</span></div><p>Parallel's team runs client, partner, and internal meetings all week. A bot records them, and AI turns each one into a summary, key topics, and to-dos.</p></div>
+      <div class="row ds-type"><div><span class="row__k">Body small</span><code>--text-body-s</code><span class="t-caption">16px, 1.6</span></div><p class="t-body-s">Card descriptions, metric labels, navigation.</p></div>
+      <div class="row ds-type"><div><span class="row__k">Label</span><code>--text-label</code><span class="t-caption">14px, 1.4, Plus Jakarta Sans 500, muted</span></div><p class="t-label">Role</p></div>
+      <div class="row ds-type"><div><span class="row__k">Caption</span><code>--text-caption</code><span class="t-caption">14px, 1.5, muted</span></div><p class="t-caption">One meeting record: details, agenda, summary, and to-dos.</p></div>
+    </div>
+  </section>
+
+  <!-- SPACING -->
+  <section class="section" id="space" aria-labelledby="space-h">
+    <div class="split"><h2 id="space-h">Spacing and layout</h2><p>A 4px base scale. Use the tokens, never one-off values. Larger steps separate sections; smaller steps group related things.</p></div>
+    <div class="rows">
+      <div class="row ds-space"><code>--space-1</code><div><span class="ds-bar" style="width:4px"></span>4px. Label to value</div></div>
+      <div class="row ds-space"><code>--space-2</code><div><span class="ds-bar" style="width:8px"></span>8px. Tag padding, caption gap</div></div>
+      <div class="row ds-space"><code>--space-3</code><div><span class="ds-bar" style="width:12px"></span>12px. Heading to text in cards</div></div>
+      <div class="row ds-space"><code>--space-4</code><div><span class="ds-bar" style="width:16px"></span>16px. Label block padding</div></div>
+      <div class="row ds-space"><code>--space-5</code><div><span class="ds-bar" style="width:24px"></span>24px. Paragraph gap, mobile gutter</div></div>
+      <div class="row ds-space"><code>--space-6</code><div><span class="ds-bar" style="width:32px"></span>32px. Card padding, column gap, desktop gutter</div></div>
+      <div class="row ds-space"><code>--space-7</code><div><span class="ds-bar" style="width:40px"></span>40px. Section head to content</div></div>
+      <div class="row ds-space"><code>--space-8</code><div><span class="ds-bar" style="width:56px"></span>56px. Between subsections</div></div>
+      <div class="row ds-space"><code>--space-9</code><div><span class="ds-bar" style="width:80px"></span>80px. Section gap on mobile</div></div>
+      <div class="row ds-space"><code>--space-10</code><div><span class="ds-bar" style="width:112px"></span>112px. Section gap on desktop</div></div>
+    </div>
+    <div class="rows">
+      <div class="row"><h3>Container</h3><p>1080px max width, 32px gutters on desktop, 24px on mobile.</p></div>
+      <div class="row"><h3>Split layout</h3><p>Every section head uses a 1:2 split, with the heading on the left and reading text on the right. It stacks below 600px.</p></div>
+      <div class="row"><h3>Breakpoints</h3><p>900px (summary and metrics reflow) and 600px (single column, smaller type and spacing).</p></div>
+      <div class="row"><h3>Rules and corners</h3><p>Ink rules (1px) frame cards, tables, and section tops. Line hairlines divide inside a block. Corners are always square.</p></div>
+      <div class="row"><h3>Motion</h3><p>Color and underline changes only, 180ms. Turned off entirely for people who prefer reduced motion.</p></div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section class="section" id="components" aria-labelledby="comp-h">
+    <div class="split"><h2 id="comp-h">Components</h2><p>Every component the site uses, rendered from the shared stylesheet.</p></div>
+
+    <h3 class="ds-comp-h">Links and tags</h3>
+    <div class="ds-demo">
+      <p style="margin:0">Read the <a href="#components">full case study</a> for the research behind it.</p>
+      <p style="margin:var(--space-4) 0 0"><span class="tag">Live on the App Store</span> <span class="tag">Validated</span> <span class="tag tag--pending">In build</span> <span class="tag tag--pending">Awaiting launch</span></p>
+    </div>
+
+    <h3 class="ds-comp-h">Buttons</h3>
+    <div class="ds-demo"><div class="button-row" style="margin-top:0"><a class="button" href="#components">Download resume</a><a class="button button--secondary" href="#components">LinkedIn</a></div></div>
+
+    <h3 class="ds-comp-h">Project card</h3>
+    <article class="card">
+      <div class="card__media" aria-hidden="true"></div>
+      <div class="card__body">
+        <h3>Maya Migrate</h3>
+        <p class="card__sub">Nonprofit legal tech, 2026</p>
+        <p class="card__role">Lead product designer</p>
+        <p>I designed a free case-management app for immigrants and the lawyers who serve them.</p>
+        <a class="button card__cta" href="#components">Read case study <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+
+    <h3 class="ds-comp-h">Summary label</h3>
+    <dl class="summary">
+      <div><dt>Role</dt><dd>Lead product designer</dd></div>
+      <div><dt>Team</dt><dd>Founder, one engineer</dd></div>
+      <div><dt>Timeline</dt><dd>2026</dd></div>
+      <div class="summary__wide"><dt>Problem</dt><dd>One sentence on what was wrong and for whom.</dd></div>
+      <div class="summary__wide"><dt>Outcome</dt><dd>One sentence on what changed, measured or validated.</dd></div>
+    </dl>
+
+    <h3 class="ds-comp-h">Decision row</h3>
+    <div class="rows" style="margin-top:0">
+      <div class="row">
+        <h3>Only let people send what they can see</h3>
+        <div>
+          <p><span class="row__k">The situation</span>Admins couldn't see the full report from the card they sent it from.</p>
+          <p><span class="row__k">What I chose</span>Sending happens only where the whole report is visible.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="ds-comp-h">Figure</h3>
+    <figure style="margin-top:0"><div class="media media--short" aria-hidden="true"></div><figcaption>Captions say what to notice, not what the image is.</figcaption></figure>
+
+    <h3 class="ds-comp-h">Pull quote</h3>
+    <div class="quotes" style="margin-top:0"><blockquote class="pull-quote"><p>It's a receptionist, not a salesperson.</p><footer>Participant, agency CEO</footer></blockquote></div>
+
+    <h3 class="ds-comp-h">Metrics</h3>
+    <div class="metrics" style="margin-top:0">
+      <div class="metric"><span class="metric__num">34</span><p>Findings across two Shopify audits.</p><span class="t-caption">Peace Out, Winky Lux</span></div>
+      <div class="metric"><span class="metric__num">3/3</span><p>Participants who found the responses easy to understand.</p><span class="t-caption">Parallel, 2026</span></div>
+      <div class="metric"><span class="metric__num metric__num--empty">—</span><p>Hours saved each week on reporting.</p><span class="t-caption"><span class="tag tag--pending">In build</span></span></div>
+    </div>
+  </section>
+
+  <!-- CHECKS -->
+  <section class="section" id="checks" aria-labelledby="checks-h">
+    <div class="split"><h2 id="checks-h">UX and accessibility checks</h2><p>Where the system stands against common guidance, including WCAG 2.2 AA.</p></div>
+    <div class="ds-table-wrap">
+      <table class="ds-table">
+        <thead><tr><th>Check</th><th>Standard</th><th>This system</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Text contrast</td><td>4.5:1 normal, 3:1 large (WCAG 1.4.3)</td><td>Lowest text pairing is 5.4:1</td><td><span class="tag">Pass</span></td></tr>
+          <tr><td>Non-color cues</td><td>Meaning not by color alone (1.4.1)</td><td>Links are underlined, status tags use words</td><td><span class="tag">Pass</span></td></tr>
+          <tr><td>Body size</td><td>16px minimum is common guidance</td><td>18px desktop, 17px mobile</td><td><span class="tag">Pass</span></td></tr>
+          <tr><td>Smallest text</td><td>Avoid going below 14px for content</td><td>14px for labels and captions</td><td><span class="tag">Pass</span></td></tr>
+          <tr><td>Line length</td><td>About 45–80 characters</td><td>Capped at 68ch</td><td><span class="tag">Pass</span></td></tr>
+          <tr><td>Line height</td><td>At least 1.5 for body (1.4.12)</td><td>1.65 body, 1.5 captions</td><td><span class="tag">Pass</span></td></tr>
+          <tr><td>Touch targets</td><td>24px minimum (2.5.8), 44px recommended</td><td>Nav links are 44px tall</td><td><span class="tag">Pass</span></td></tr>
+          <tr><td>Focus visible</td><td>Clear keyboard focus (2.4.7)</td><td>2px accent outline, 3px offset</td><td><span class="tag">Pass</span></td></tr>
+          <tr><td>Skip link</td><td>Bypass repeated blocks (2.4.1)</td><td>Skip-to-content link on every page</td><td><span class="tag">Pass</span></td></tr>
+          <tr><td>Reflow</td><td>Usable at 320px wide (1.4.10)</td><td>Single column below 600px</td><td><span class="tag">Pass</span></td></tr>
+          <tr><td>Reduced motion</td><td>Respect user preference</td><td>All transitions off</td><td><span class="tag">Pass</span></td></tr>
+          <tr><td>Navigation</td><td>Few, predictable items</td><td>Four items, current page marked</td><td><span class="tag">Pass</span></td></tr>
+          <tr><td>Image alt text</td><td>Meaningful alternatives (1.1.1)</td><td>Needs writing once real images go in</td><td><span class="tag tag--pending">To do</span></td></tr>
+          <tr><td>Dark mode</td><td>Optional</td><td>Light only for now</td><td><span class="tag tag--pending">Later</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section split" aria-labelledby="rules-h">
+    <h2 id="rules-h">Usage rules</h2>
+    <div class="rows" style="margin-top:0">
+      <div class="row"><h3>Do</h3><p>Use tokens for every color, size, and space. Keep vermilion to links, status, hover states, and quote rules. Write captions that tell people what to notice.</p></div>
+      <div class="row"><h3>Don't</h3><p>Add new colors per page, use the signal orange as text, round corners, add shadows, or animate anything beyond color and underline.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="wrap"><div class="site-footer__inner"><span>Design system v1.1</span><span class="t-muted">Space Mono, Plus Jakarta Sans, vermilion</span></div></div></footer>
+</body>
+</html>
